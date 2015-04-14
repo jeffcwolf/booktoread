@@ -1,2 +1,27 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<h1>Find Your Next Book to Read</h1>
+
+<p>Choose by genre:
+
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+    Genre
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">E-Book and Print Fiction</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+  </ul>
+</div>
+
+<div>
+
+  <% @travel_books_array.each do |book| %>
+    <li><%= book["author"] %></li>
+    <li><%= book["title"] %></li>
+    <li><%= book["description"] %></li>
+    <li><%= book["rank"] %></li>
+  <% end %>
+
+</div>
