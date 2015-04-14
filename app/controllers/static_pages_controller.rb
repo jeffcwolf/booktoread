@@ -4,7 +4,7 @@ require 'json'
 class StaticPagesController < ApplicationController
   def home
 
-    @booksapi_url = "http://api.nytimes.com/svc/books/v3/lists/overview.json?api-key=0469b775059556983ac08847fce9c1c8:18:14747325"
+    @booksapi_url = "http://api.nytimes.com/svc/books/v3/lists/overview.json?api-key=#{NYT_BOOKSAPI_KEY}"
 
     @raw_results = open(@booksapi_url).read
 
