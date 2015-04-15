@@ -4,7 +4,7 @@ require 'json'
 class StaticPagesController < ApplicationController
   def home
 
-    @booksapi_url = "http://api.nytimes.com/svc/books/v3/lists/overview.json?api-key=#{NYT_BOOKSAPI_KEY}"
+    @booksapi_url = "http://api.nytimes.com/svc/books/v3/lists/travel.json?api-key=#{NYT_BOOKSAPI_KEY}"
 
     @raw_results = open(@booksapi_url).read
 
@@ -50,9 +50,7 @@ class StaticPagesController < ApplicationController
     # @sports_overview = @parsed_results["results"]["lists"][37]
 
     # Travel Lists & Methods
-    @travel_overview = @parsed_results["results"]["lists"][38]
-    @travel_listname = @travel_overview["list_name"]
-    @travel_books_array = @travel_overview["books"]
+    @travel_overview = @parsed_results["results"]["books"]
 
   end
 

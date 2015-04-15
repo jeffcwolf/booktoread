@@ -17,11 +17,14 @@
 
 <div>
 <strong><%= @travel_listname %></strong>
-  <% @travel_books_array.each do |book| %>
+  <% @travel_overview.each do |book| %>
+    <li><%= book["rank"] %></li>
     <li><%= book["author"] %></li>
     <li><%= book["title"] %></li>
     <li><%= book["description"] %></li>
-    <li><%= book["rank"] %></li>
+    <li><img src="<%= book["book_image"] %>" height="174" width="128"></li>
+    <li><a href="<%= book["book_review_link"] %>">NYTimes Book Review link</a></li>
+    <li><A href="<%= book["amazon_product_url"] %>">Amazon Book Page link</a></li>
   <% end %>
 
 </div>
