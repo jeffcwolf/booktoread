@@ -2,15 +2,13 @@
 
 <p>Choose by genre:</p>
 
-<p><a href="#">E-Book and Print Fiction</a></p>
-<p><a href="#">Combined Print and E-Book Nonfiction</a></p>
-<p><a href="#">Hardcover Fiction</a></p>
-<p><a href="#">Trade Fiction Paperback</a></p>
-<p><a href="#">Travel</a></p>
-
+<%= @listnames.each do |listname| %>
+  <li><a href="#"><%= listname %></a></li>
+<% end %>
 
 <div>
-<strong><%= @travel_listname %></strong>
+
+  <strong><%= @listnames[3] %></strong>
   <% @travel_overview.each do |book| %>
     <li><%= book["rank"] %></li>
     <li><%= book["author"] %></li>
