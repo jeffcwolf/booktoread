@@ -2,12 +2,14 @@
 
 <p>Choose by genre:</p>
 
-<%= @listnames.each do |listname| %>
-  <li><a href="#"><%= listname %></a></li>
+<% @listnames.each do |listname| %>
+  <a href="#"><%= listname %></a> |
 <% end %>
 
-<div>
+<br>
+<br>
 
+<div>
   <strong><%= @listnames[3] %></strong>
   <% @travel_overview.each do |book| %>
     <li><%= book["rank"] %></li>

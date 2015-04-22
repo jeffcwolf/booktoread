@@ -3,7 +3,6 @@ require 'json'
 
 class StaticPagesController < ApplicationController
   def home
-
     #Obtain book list names for subsequent use in API requests
 
     @listnames_url = "http://api.nytimes.com/svc/books/v3/lists/names.json?api-key=#{NYT_BOOKSAPI_KEY}"
@@ -20,8 +19,12 @@ class StaticPagesController < ApplicationController
     @listnames = []
 
     @listnames_full.each do |list|
-      @listnames.push(list["list_name"])
+        @listnames.push(list["list_name"])
     end
+
+    #Create a sub-list of all the less common genres and save them here
+
+    #Create a sub-list of all the most common genres and save them here
 
     #Replace spaces with hyphens and downcase (e.g. hardcover-fiction)
     #to obtain URL-ready list names
@@ -29,7 +32,7 @@ class StaticPagesController < ApplicationController
     @listnames_URL_ready = []
 
     @listnames.each do |list_item|
-      @listnames_URL_ready.push(list_item.downcase.gsub(/\s/, '-'))
+        @listnames_URL_ready.push(list_item.downcase.gsub(/\s/, '-'))
     end
 
     #Implement the API request for the list of Best Sellers by Genre
