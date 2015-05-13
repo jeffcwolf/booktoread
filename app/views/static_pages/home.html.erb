@@ -1,24 +1,25 @@
 <h1>Find Your Next Book to Read</h1>
 
-<p>Choose by genre:</p>
+<h6>Choose by genre:</h6>
 
 <% @listnames.each do |listname| %>
-  <a href="#"><%= listname %></a> |
+  <h5><a href="#"><%= listname %></a> |</h5>
 <% end %>
 
 <br>
 <br>
 
-<div>
-  <strong><%= @listnames[3] %></strong>
+<div class="booklist">
+  <h4><strong><%= @listnames[3] %></strong></h4>
   <% @travel_overview.each do |book| %>
+    <div class="bookitem">
     <li><%= book["rank"] %></li>
     <li><%= book["author"] %></li>
     <li><%= book["title"] %></li>
     <li><%= book["description"] %></li>
     <li><img src="<%= book["book_image"] %>" height="174" width="128"></li>
     <li><a href="<%= book["book_review_link"] %>">NYTimes Book Review link</a></li>
-    <li><A href="<%= book["amazon_product_url"] %>">Amazon Book Page link</a></li>
+    <li><a href="<%= book["amazon_product_url"] %>">Amazon Book Page link</a></li>
+    </div>
   <% end %>
-
 </div>
